@@ -80,7 +80,7 @@ export function Simulation() {
               }}
             >
               {[...WALLS].map((k) => {
-                const [x, y] = k.split(",").map(Number);
+                const [x = 0, y = 0] = k.split(",").map(Number);
                 return (
                   <rect
                     key={k}

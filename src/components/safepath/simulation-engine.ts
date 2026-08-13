@@ -111,8 +111,8 @@ export function findRoute(start: Cell, hazards: Hazard[]) {
   const path: Cell[] = [];
   let cursor: string | null = key(goal);
   while (cursor) {
-    const [x, y] = cursor.split(",").map(Number);
-    path.unshift({ x, y });
+    const parts = cursor.split(",").map(Number);
+    path.unshift({ x: parts[0] as number, y: parts[1] as number });
     cursor = prev.get(cursor) ?? null;
   }
   return { path, exit: goal, blocked };
